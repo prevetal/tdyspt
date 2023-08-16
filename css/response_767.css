@@ -1,0 +1,79 @@
+@media print,
+(max-width: 767px)
+{
+    /*-------------------
+        Global styles
+    -------------------*/
+    .cont
+    {
+        padding: 0 20px;
+    }
+
+
+
+    /*--------------
+        Fancybox
+    --------------*/
+    .fancybox__slide
+    {
+        padding: 20px;
+    }
+
+
+
+    /*------------
+        Header
+    ------------*/
+    header
+    {
+        padding-top: 20px;
+    }
+
+
+    header .logo
+    {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+
+
+    /*-----------
+        Table
+    -----------*/
+    .table .head .btns
+    {
+        width: calc(100% + 20px);
+        margin-bottom: 10px;
+    }
+
+
+    .table .head .btns .add_new_btn,
+    .table .head .btns .add_new_btn:hover
+    {
+        font-size: 13px;
+    }
+
+
+
+    /*-----------
+        PopUp
+    -----------*/
+    .modal_head
+    {
+        padding-left: 10px;
+    }
+
+
+    .modal_title
+    {
+        font-size: 17px;
+        line-height: 21px;
+    }
+
+
+    .modal_data
+    {
+        padding: 10px;
+    }
+}

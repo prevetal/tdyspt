@@ -1,0 +1,351 @@
+<section class="modal edit_modal" id="add_new_modal">
+	<div class="modal_head">
+        <div class="modal_title">Новая заявка</div>
+    </div>
+
+    <div class="modal_data">
+        <form action="" class="form">
+            <div class="cols">
+                <div class="col">
+                    <div class="columns">
+                        <div class="line width2of3">
+                            <div class="label">Менеджер</div>
+
+                            <div class="field">
+                                <select name="">
+                                    <option value="0" selected>Все</option>
+                                    <option value="1">Вариант 1</option>
+                                    <option value="2">Вариант 2</option>
+                                    <option value="3">Вариант 3</option>
+                                </select>
+
+                                <svg class="arr"><use xlink:href="images/sprite.svg#ic_arr_hor"></use></svg>
+                            </div>
+                        </div>
+
+                        <div class="line width1of3">
+                            <div class="label">Номер заявки</div>
+
+                            <div class="field">
+                                <div class="tooltip">
+                                    <svg class="icon"><use xlink:href="images/sprite.svg#ic_tooltip"></use></svg>
+
+                                    <div class="text">Какой-то комментарий</div>
+                                </div>
+
+                                <input type="text" name="" value="" class="input" placeholder="Все">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <div class="label">Наименование организации</div>
+
+                        <div class="field">
+                            <input type="text" name="" value="" class="input" placeholder="Организация">
+                        </div>
+                    </div>
+
+                    <div class="columns">
+                        <div class="line calendar width1of3">
+                            <div class="label">Срок поставки</div>
+
+                            <div class="field">
+                                <svg class="icon"><use xlink:href="images/sprite.svg#ic_calendar"></use></svg>
+                                <input type="text" name="" value="" class="input date_input" placeholder="01.01.2023">
+                            </div>
+                        </div>
+
+                        <div class="line width2of3">
+                            <div class="label">Статус</div>
+
+                            <div class="field">
+                                <select name="">
+                                    <option value="0" selected>Статус заявки</option>
+                                    <option value="1">Вариант 1</option>
+                                    <option value="2">Вариант 2</option>
+                                    <option value="3">Вариант 3</option>
+                                </select>
+
+                                <svg class="arr"><use xlink:href="images/sprite.svg#ic_arr_hor"></use></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <div class="label">Адрес поставки</div>
+
+                        <div class="field">
+                            <input type="text" name="" value="" class="input" placeholder="Адрес поставки">
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <div class="label">Доставка</div>
+
+                        <div class="field">
+                            <input type="text" name="" value="" class="input" placeholder="Доставка">
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <div class="label">Доп. оборудование</div>
+
+                        <div class="field">
+                            <input type="text" name="" value="" class="input" placeholder="Дополнительное оборудование">
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <div class="label">Комментарий</div>
+
+                        <div class="field">
+                            <textarea name="" placeholder="Комментарий" class="mini"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="columns">
+                        <div class="line width1of3">
+                            <div class="label">Номер счёта</div>
+
+                            <div class="field">
+                                <input type="number" name="" value="" class="input" placeholder="№ счёта">
+
+                                <!-- <input type="number" name="" value="" class="input error" placeholder="№ счёта"> -->
+                                <!-- <div class="error_text">Ошибка и её описание</div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line file">
+                        <div class="label">ПТС</div>
+
+                        <div class="field">
+                            <label>
+                                <input type="file" name="ptc">
+                                <div class="name">Название файла</div>
+                                <div class="btn">Выберите файл</div>
+                            </label>
+
+                            <!-- <div class="selected">
+                                <svg class="icon"><use xlink:href="images/sprite.svg#ic_file_download"></use></svg>
+                                <span>VIN-847834734-2023</span>
+
+                                <button type="button" class="delete_btn">
+                                    <svg class="icon"><use xlink:href="images/sprite.svg#ic_delete"></use></svg>
+                                </button>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="columns">
+                        <div class="line width1of3">
+                            <div class="label">УПД</div>
+
+                            <div class="field">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="ypd" value="number">
+
+                                    <div class="check">
+                                        <svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+                                    </div>
+
+                                    <div>Есть</div>
+                                </label>
+                                <!-- <select name="" class="top_view">
+                                    <option value="0" selected>Выбрать</option>
+                                    <option value="1">Вариант 1</option>
+                                    <option value="2">Вариант 2</option>
+                                    <option value="3">Вариант 3</option>
+                                </select>
+
+                                <svg class="arr"><use xlink:href="images/sprite.svg#ic_arr_hor"></use></svg> -->
+                            </div>
+                        </div>
+
+                        <div class="line width1of3">
+                            <div class="label">Акт</div>
+
+                            <div class="field">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="act" value="number">
+
+                                    <div class="check">
+                                        <svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+                                    </div>
+
+                                    <div>Есть</div>
+                                </label>
+                                <!-- <select name="" class="top_view">
+                                    <option value="0" selected>Выбрать</option>
+                                    <option value="1">Вариант 1</option>
+                                    <option value="2">Вариант 2</option>
+                                    <option value="3">Вариант 3</option>
+                                </select>
+
+                                <svg class="arr"><use xlink:href="images/sprite.svg#ic_arr_hor"></use></svg> -->
+                            </div>
+                        </div>
+
+                        <div class="line width1of3">
+                            <div class="label">Договор</div>
+
+                            <div class="field">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="treaty" value="number">
+
+                                    <div class="check">
+                                        <svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+                                    </div>
+
+                                    <div>Есть</div>
+                                </label>
+                                <!-- <select name="" class="top_view">
+                                    <option value="0" selected>Выбрать</option>
+                                    <option value="1">Вариант 1</option>
+                                    <option value="2">Вариант 2</option>
+                                    <option value="3">Вариант 3</option>
+                                </select>
+
+                                <svg class="arr"><use xlink:href="images/sprite.svg#ic_arr_hor"></use></svg> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="line">
+                        <div class="label">Наименование товара</div>
+
+                        <div class="field">
+                            <textarea name="" placeholder="Комментарий"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <div class="label">Кол-во</div>
+
+                        <div class="field">
+                            <svg class="icon"><use xlink:href="images/sprite.svg#ic_number"></use></svg>
+                            <input type="number" name="" value="1" class="input" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <div class="label">Цена, руб</div>
+
+                        <div class="field">
+                            <input type="number" name="" value="" class="input" placeholder="00,0">
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <div class="label">Сумма, руб</div>
+
+                        <div class="field">
+                            <input type="number" name="" value="" class="input" placeholder="00,0" readonly>
+                        </div>
+                    </div>
+
+                    <div class="line sep">
+                        <div class="label">Сумма оплаты, руб</div>
+
+                        <div class="field">
+                            <input type="number" name="" value="" class="input" placeholder="Сумма оплаты">
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <div class="label">Дата оплаты</div>
+
+                        <div class="field">
+                            <svg class="icon"><use xlink:href="images/sprite.svg#ic_calendar"></use></svg>
+                            <input type="number" name="" value="" class="input date_input" placeholder="01.01.2023">
+                        </div>
+                    </div>
+
+                    <div class="template">
+                        <div class="payment">
+                            <div class="line sep">
+                                <div class="label">
+                                    <span>Сумма оплаты, руб</span>
+
+                                    <button type="button" class="delete_btn tooltip">
+                                        <svg class="icon"><use xlink:href="images/sprite.svg#ic_remove"></use></svg>
+                                        <div class="text">Какой-то комментарий</div>
+                                    </button>
+                                </div>
+
+                                <div class="field">
+                                    <input type="number" name="" value="" class="input" placeholder="Сумма оплаты">
+                                </div>
+                            </div>
+
+                            <div class="line">
+                                <div class="label">Дата оплаты</div>
+
+                                <div class="field">
+                                    <svg class="icon"><use xlink:href="images/sprite.svg#ic_calendar"></use></svg>
+                                    <input type="number" name="" value="" class="input date_input" placeholder="01.01.2023">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <div class="label">Задолженность, руб</div>
+
+                        <div class="field">
+                            <input type="number" name="" value="" class="input red" placeholder="00,0" readonly>
+                        </div>
+                    </div>
+
+                    <button type="button" class="add_payment_btn">Добавить оплату</button>
+                </div>
+            </div>
+
+            <button type="submit" class="submit_btn">
+                <span>Сохранить</span>
+                <svg class="icon"><use xlink:href="images/sprite.svg#ic_edit"></use></svg>
+            </button>
+        </form>
+    </div>
+
+
+    <script>
+        // Календарь
+        document.querySelectorAll('.edit_modal .date_input').forEach(el => {
+            new AirDatepicker(el, {
+                position: 'bottom right',
+                // minDate: new Date(),
+                autoClose: true,
+                showOtherMonths: false,
+                navTitles: {
+                    days: 'MMMM yyyy',
+                    months: 'yyyy',
+                    years: 'yyyy1 - yyyy2'
+                },
+                prevHtml: '<svg class="icon"><use xlink:href="images/sprite.svg#ic_arr_hor"></use></svg>',
+                nextHtml: '<svg class="icon"><use xlink:href="images/sprite.svg#ic_arr_hor"></use></svg>'
+            })
+        })
+
+
+        // Кастомный select
+        const selects = document.querySelectorAll('.edit_modal select')
+
+        if (selects) {
+            selects.forEach(el => NiceSelect.bind(el))
+        }
+
+
+        // Выбор файла
+        const fileInputs = document.querySelectorAll('.edit_modal form input[type=file]')
+
+        if (fileInputs) {
+            fileInputs.forEach(el => {
+                el.addEventListener('change', () => el.closest('.file').querySelector('label .name').innerText = el.value)
+            })
+        }
+        </script>
+</section>

@@ -1,0 +1,63 @@
+@media print,
+(max-width: 1023px)
+{
+    /*-------------------
+        Global styles
+    -------------------*/
+
+
+
+    /*------------
+        Header
+    ------------*/
+    header
+    {
+        padding: 24px 0 20px;
+    }
+
+
+    header .menu_item > a
+    {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+
+
+    /*------------------
+        Form elements
+    ------------------*/
+    .form .cols .col,
+    .form .cols .col + .col
+    {
+        width: 100%;
+    }
+
+
+    .form .tooltip .text
+    {
+        right: -10px;
+        left: auto;
+
+        transform: none;
+    }
+
+    .form .tooltip .text:before
+    {
+        right: 12px;
+        left: auto;
+
+        margin: 0;
+    }
+
+
+
+    /*-----------
+        Table
+    -----------*/
+    .table .head .btns .add_new_btn,
+    .table .head .btns .add_new_btn:hover
+    {
+        font-size: 14px;
+    }
+}

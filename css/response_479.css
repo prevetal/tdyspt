@@ -1,0 +1,85 @@
+@media (max-width: 479px)
+{
+    /*-------------------
+        Global styles
+    -------------------*/
+    .cont
+    {
+        padding: 0 10px;
+    }
+
+
+
+    /*------------
+        Header
+    ------------*/
+    header .menu_item + .menu_item
+    {
+        margin-left: 16px;
+    }
+
+
+    header .menu_item > a
+    {
+        font-size: 13px;
+        line-height: 21px;
+    }
+
+    header .menu_item > a .icon
+    {
+        display: none;
+    }
+
+
+    header .user
+    {
+        height: 36px;
+        margin-left: auto;
+        padding: 0 12px;
+    }
+
+
+
+    /*------------------
+        Form elements
+    ------------------*/
+    .form .columns > *.width1of3,
+    .form .columns > *.width2of3
+    {
+        width: calc(50% - var(--form_columns_offset));
+    }
+
+
+    .form .submit_btn
+    {
+        padding: 8px 12px;
+    }
+
+
+
+    /*-----------
+        Table
+    -----------*/
+    .table .head .btns .btn
+    {
+        padding: 8px;
+    }
+
+    .table .head .btns .btn .icon
+    {
+        margin-left: 6px;
+    }
+
+
+    .table .head .btns .add_new_btn,
+    .table .head .btns .add_new_btn:hover
+    {
+        font-size: 12px;
+    }
+
+
+    .table .head .btns .delete_btn
+    {
+        margin-left: auto;
+    }
+}
