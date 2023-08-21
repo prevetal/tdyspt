@@ -55,9 +55,34 @@
     /*-----------
         Table
     -----------*/
+    .table .head
+    {
+        justify-content: flex-start;
+    }
+
+
+    .table .head .btns
+    {
+        width: calc(100% + 20px);
+        margin-bottom: 10px;
+    }
+
+
     .table .head .btns .add_new_btn,
     .table .head .btns .add_new_btn:hover
     {
         font-size: 14px;
+    }
+
+
+    .table .head .filter_btns
+    {
+        margin-left: 0;
+    }
+
+
+    .table .head .filter_btns .btn
+    {
+        padding: 9px 13px;
     }
 }

@@ -260,7 +260,7 @@
 
                         <div class="field">
                             <svg class="icon"><use xlink:href="images/sprite.svg#ic_calendar"></use></svg>
-                            <input type="number" name="" value="" class="input date_input" placeholder="01.01.2023">
+                            <input type="text" name="" value="" class="input date_input" placeholder="01.01.2023">
                         </div>
                     </div>
 
@@ -286,7 +286,7 @@
 
                                 <div class="field">
                                     <svg class="icon"><use xlink:href="images/sprite.svg#ic_calendar"></use></svg>
-                                    <input type="number" name="" value="" class="input date_input" placeholder="01.01.2023">
+                                    <input type="text" name="" value="" class="input date_input" placeholder="01.01.2023">
                                 </div>
                             </div>
                         </div>
@@ -332,20 +332,13 @@
 
 
         // Кастомный select
-        const selects = document.querySelectorAll('.edit_modal select')
+        const newSelects = document.querySelectorAll('select:not(.initialized)')
 
-        if (selects) {
-            selects.forEach(el => NiceSelect.bind(el))
-        }
-
-
-        // Выбор файла
-        const fileInputs = document.querySelectorAll('.edit_modal form input[type=file]')
-
-        if (fileInputs) {
-            fileInputs.forEach(el => {
-                el.addEventListener('change', () => el.closest('.file').querySelector('label .name').innerText = el.value)
+        if (newSelects) {
+            newSelects.forEach(el => {
+                NiceSelect.bind(el)
+                el.classList.add('initialized')
             })
         }
-        </script>
+    </script>
 </section>

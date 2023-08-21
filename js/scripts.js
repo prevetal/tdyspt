@@ -7,7 +7,7 @@ OVERLAY = document.querySelector('.overlay')
 
 document.addEventListener('DOMContentLoaded', function () {
 	// Мини всплывающие окна
-	$('.mini_modal_btn').click(function(e) {
+	$('body').on('click', '.mini_modal_btn', function (e) {
 		e.preventDefault()
 
 		const modalId = $(this).data('modal-id')
@@ -58,24 +58,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	// Всплывающие окна
-	const modalBtns = document.querySelectorAll('.modal_btn')
+	$('body').on('click', '.modal_btn', function (e) {
+		e.preventDefault()
 
-	if (modalBtns) {
-		modalBtns.forEach(el => {
-			el.addEventListener('click', e => {
-				e.preventDefault()
+		Fancybox.close()
 
-				Fancybox.close()
+		Fancybox.show([{
+			src: document.getElementById($(this).data('modal')),
+			type: 'inline'
+		}])
+	})
 
-				Fancybox.show([{
-					src: document.getElementById(el.getAttribute('data-modal')),
-					type: 'inline'
-				}])
-			})
-		})
-	}
 
-	$('.modal .close_btn').click(function(e) {
+	$('body').on('click', '.modal .close_btn', function (e) {
 		e.preventDefault
 
 		Fancybox.close()
@@ -83,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	// Фильтр - спойлер
-	$('.table th .filter_btn').click(function(e) {
+	$('body').on('click', '.table th .filter_btn', function (e) {
 		e.preventDefault()
 
 		$(this).toggleClass('active')
@@ -92,14 +87,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	// Таблица - сортировка
-	$('.table th.sort').click(function() {
+	$('body').on('click', '.table th.sort', function (e) {
 		$('.table thead th').removeClass('active')
 		$(this).addClass('active')
 	})
 
 
 	// Таблица - выбор всех строк
-	$('.table th .checkbox').click(function(e) {
+	$('body').on('click', '.table th.check .checkbox', function (e) {
 		if (e.target.nodeName == 'LABEL') {
 			$(this).toggleClass('active')
 
@@ -115,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	// Таблица - выбор строки
-	$('.table td.check .checkbox').click(function(e) {
+	$('body').on('click', '.table td.check .checkbox', function (e) {
 		if (e.target.nodeName == 'LABEL') {
 			$(this).closest('tr').toggleClass('selected')
 		}
@@ -123,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	// Таблица - редактирование строки
-	$('.table .head .btns .edit_btn').click(function(e) {
+	$('body').on('click', '.table .head .btns .edit_btn', function (e) {
 		if($('.table td.check .checkbox input:checked').length) {
 			$('.table').toggleClass('editing')
 		}
@@ -131,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	// Таблица - удаление строк строки
-	$('.table .head .btns .delete_btn').click(function(e) {
+	$('body').on('click', '.table .head .btns .delete_btn', function (e) {
 		if($('.table td.check .checkbox input:checked').length) {
 			Fancybox.show([{
 				src: '#confirm_delete_modal',
@@ -142,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	// Настройки отображения столбцов
-	$('.table .head .settings .save_btn').click(function(e) {
+	$('body').on('click', '.table .head .settings .save_btn', function (e) {
 		e.preventDefault()
 
 		let data = $('.table .head .settings input[name="settings"]').serializeArray()
@@ -156,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	// Модальное окно - Новая оплата
-	$('.form .add_payment_btn').click(function(e) {
+	$('body').on('click', '.form .add_payment_btn', function (e) {
 		e.preventDefault()
 
 		let html = $(this).closest('.form').find('.template').html()
@@ -212,18 +207,47 @@ document.addEventListener('DOMContentLoaded', function () {
 	const selects = document.querySelectorAll('select')
 
 	if (selects) {
-		selects.forEach(el => NiceSelect.bind(el))
+		selects.forEach(el => {
+			NiceSelect.bind(el)
+			el.classList.add('initialized')
+		})
 	}
+
+
+	// После того как была выполнена вставка в html новых элементов
+	// Берём все селекты которые еще не инициализировались и выполняем для них такую же инициализацию
+	// Не разрушая, не обвновляя и не трогая старые селекты
+
+	// const newSelects = document.querySelectorAll('select:not(.initialized)')
+
+	// if (newSelects) {
+	// 	newSelects.forEach(el => {
+	// 		NiceSelect.bind(el)
+	// 		el.classList.add('initialized')
+	// 	})
+	// }
 
 
 	// Выбор файла
-	const fileInputs = document.querySelectorAll('form input[type=file]')
+	$('body').on('change', 'form input[type=file]', function (e) {
+		$(this).closest('.file').find('label .name').text($(this).val())
+	})
 
-	if (fileInputs) {
-		fileInputs.forEach(el => {
-			el.addEventListener('change', () => el.closest('.file').querySelector('label .name').innerText = el.value)
-		})
-	}
+
+	// Выбор файла ПТС
+	$('body').on('change', '.table td.ptc input[type=file]', function (e) {
+		e.preventDefault()
+
+		$(this).closest('.ptc').find('label').addClass('hide')
+	})
+
+
+	// Удаление ПТС файла
+	$('body').on('click', '.table td.ptc .delete_btn', function (e) {
+		e.preventDefault()
+
+		$(this).closest('.ptc').find('label').removeClass('hide')
+	})
 
 
 	// Отправка форм

@@ -41,13 +41,6 @@
     /*-----------
         Table
     -----------*/
-    .table .head .btns
-    {
-        width: calc(100% + 20px);
-        margin-bottom: 10px;
-    }
-
-
     .table .head .btns .add_new_btn,
     .table .head .btns .add_new_btn:hover
     {

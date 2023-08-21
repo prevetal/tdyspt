@@ -1299,6 +1299,8 @@ header .user .icon
 
     width: 16px;
     height: 16px;
+
+    pointer-events: none;
 }
 
 
@@ -1552,6 +1554,56 @@ header .user .icon
 
 
 
+.table .head .filter_btns
+{
+    display: flex;
+
+    margin-left: auto;
+
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.table .head .filter_btns > * + *
+{
+    margin-left: 10px;
+}
+
+
+.table .head .filter_btns .btn
+{
+    color: #333641;
+    font-size: 11px;
+
+    padding: 9px 14px;
+
+    transition: .2s linear;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+.table .head .filter_btns .btn:hover
+{
+    color: #cd160b;
+
+    border-color: #cd160b;
+}
+
+
+.table .head .filter_btns .btn.apply_btn
+{
+    color: #fff;
+
+    border-color: #cd160b;
+    background: #cd160b;
+}
+
+
+
 .table .head .download_exel
 {
     color: currentColor;
@@ -1560,7 +1612,7 @@ header .user .icon
 
     width: 32px;
     height: 32px;
-    margin-left: auto;
+    margin-left: 14px;
 
     transition: color .2s linear;
     text-decoration: none;
@@ -2089,7 +2141,7 @@ header .user .icon
 {
     color: currentColor;
 
-    display: flex;
+    display: none;
 
     max-width: calc(100% - 40px);
 
@@ -2108,6 +2160,11 @@ header .user .icon
     width: 16px;
     height: 16px;
     margin-right: 5px;
+}
+
+.table td.ptc label.hide ~ a
+{
+    display: flex;
 }
 
 
@@ -2138,6 +2195,8 @@ header .user .icon
 
     width: 16px;
     height: 16px;
+
+    pointer-events: none;
 }
 
 
@@ -2578,12 +2637,12 @@ header .user .icon
 }
 
 .table.editing tr.selected td .field,
-.table.editing tr.selected td .file
+.table.editing tr.selected td .file:not(.hide)
 {
     display: block;
 }
 
-.table.editing tr.selected td.ptc .delete_btn
+.table.editing tr.selected td .file.hide ~ .delete_btn
 {
     display: flex;
 }
