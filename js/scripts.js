@@ -261,6 +261,102 @@ document.addEventListener('DOMContentLoaded', function () {
 			type: 'inline'
 		}])
 	})
+
+
+	// 'Up' button
+	$('.buttonUp .btn').click((e) => {
+		e.preventDefault()
+
+		$('body, html').stop(false, false).animate({ scrollTop: 0 }, 750)
+	})
+
+
+	// Table scroll
+	let tableWrap = $('.table_wrap'),
+		leftArrow = $('.table .prev'),
+		rightArrow = $('.table .next'),
+		scrollInterval
+
+
+	// Show/Hide arrows
+	function updateArrows() {
+		// Show/Hide left arrow
+		tableWrap.scrollLeft() > 0
+			? leftArrow.addClass('show')
+			: leftArrow.removeClass('show')
+
+		// Show/Hide right arrow
+		tableWrap[0].scrollWidth > tableWrap.width() + tableWrap.scrollLeft()
+			? rightArrow.addClass('show')
+			: rightArrow.removeClass('show')
+	}
+
+
+	// Scroll content
+	function scrollContent(direction) {
+		let scrollAmount = 5
+
+		scrollInterval = setInterval(() => {
+			// Calc
+			let newScrollLeft = direction === 'left' ? tableWrap.scrollLeft() - scrollAmount : tableWrap.scrollLeft() + scrollAmount
+
+			// Scroll
+			tableWrap.scrollLeft(newScrollLeft)
+
+			// Update arrows
+      		updateArrows()
+		}, 5)
+	}
+
+
+	// Stop scrolling
+	function stopScrolling() {
+		clearInterval(scrollInterval)
+	}
+
+
+	// Arrows position
+	function positionArrows() {
+        let tableOffset = tableWrap.offset().top,
+			tableHeight = tableWrap.height(),
+			windowHeight = $(window).height(),
+			scrollTop = $(window).scrollTop()
+
+        let visibleTop = Math.max(scrollTop, tableOffset),
+        	visibleBottom = Math.min(scrollTop + windowHeight, tableOffset + tableHeight)
+
+        let middleVisibleY = (visibleTop + visibleBottom) / 2
+
+        leftArrow.find('img').css({ 'top': middleVisibleY + 'px' })
+        rightArrow.find('img').css({ 'top': middleVisibleY + 'px' })
+    }
+
+
+	// Hovers
+	leftArrow.on('mouseenter', () => scrollContent('left')).on('mouseleave', () => stopScrolling())
+	rightArrow.on('mouseenter', () => scrollContent('right')).on('mouseleave', () => stopScrolling())
+
+
+	// Default scroll
+	tableWrap.on('scroll', updateArrows)
+
+
+	// Arrows position
+	$(window).on('scroll resize', positionArrows)
+
+
+	// Start arrows position
+	positionArrows()
+	updateArrows()
+})
+
+
+
+window.addEventListener('scroll', function () {
+	// 'Up' button
+	$(window).scrollTop() > $(window).innerHeight() * 0.5
+		? $('.buttonUp').fadeIn(200)
+		: $('.buttonUp').fadeOut(100)
 })
 
 

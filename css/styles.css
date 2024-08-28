@@ -112,14 +112,12 @@ input[type=number]
 ::selection
 {
     color: #fff;
-
     background: #de2e24;
 }
 
 ::-moz-selection
 {
     color: #fff;
-
     background: #de2e24;
 }
 
@@ -162,22 +160,17 @@ html.custom_scroll ::-webkit-scrollbar-thumb
     background-color: #de2e24;
 }
 
-html.custom_scroll
-{
-    scrollbar-color: #de2e24 var(--bg);
-    scrollbar-width: thin;
-}
-
 
 body
 {
-    color: var(--text_color);
     font: var(--font_size) var(--font_family);
 
     height: 100%;
     min-height: -moz-available;
     min-height: -webkit-fill-available;
     min-height:         fill-available;
+
+    color: var(--text_color);
 }
 
 body.menu_open
@@ -188,7 +181,6 @@ body.menu_open
 
 button
 {
-    color: inherit;
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
@@ -199,6 +191,7 @@ button
     cursor: pointer;
     vertical-align: top;
 
+    color: inherit;
     border: none;
     background: none;
 }
@@ -210,7 +203,7 @@ button
     z-index: 9;
 
     display: flex;
-    overflow: hidden;
+    overflow: clip;
     flex-direction: column;
 
     min-width: 375px;
@@ -223,9 +216,8 @@ button
 .main
 {
     display: flex;
-    flex-direction: column;
-
     flex: 1 0 auto;
+    flex-direction: column;
 }
 
 
@@ -239,11 +231,10 @@ button
 .row
 {
     display: flex;
-
-    justify-content: flex-start;
-    align-items: flex-start;
     align-content: flex-start;
+    align-items: flex-start;
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 
@@ -259,10 +250,9 @@ button
 
 .fancybox__content
 {
-    color: var(--text_color);
-
     padding: 0;
 
+    color: var(--text_color);
     background: none;
 }
 
@@ -275,8 +265,6 @@ button
 
 .fancybox__content > .carousel__button.is-close
 {
-    color: var(--text_color);
-
     top: 19px;
     right: 11px;
 
@@ -284,6 +272,8 @@ button
     height: 20px;
 
     transition: color .2s linear;
+
+    color: var(--text_color);
 }
 
 .fancybox__content > .carousel__button.is-close svg
@@ -302,6 +292,122 @@ button
 .fancybox__content > .carousel__button.is-close:hover
 {
     color: #de2e24;
+}
+
+
+
+/*--------------
+    ButtonUp
+--------------*/
+.buttonUp
+{
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    bottom: 0;
+
+    display: none;
+}
+
+
+.buttonUp .btn
+{
+    position: relative;
+
+    width: 40px;
+    height: 40px;
+
+    color: #fff;
+    background: #cd160b;
+}
+
+
+.buttonUp .btn:before
+{
+    position: absolute;
+    top: 7px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: block;
+
+    width: 12px;
+    height: 12px;
+    margin: auto;
+
+    content: '';
+    transform: rotate(45deg);
+
+    border-top: 2px solid;
+    border-left: 2px solid;
+}
+
+
+
+/*---------------
+    Prev/Next
+---------------*/
+.table_scroll
+{
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.table .prev,
+.table .next
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+
+    width: 50px;
+    height: 100%;
+
+    transition: .2s linear;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+
+.table .next
+{
+    right: 0;
+    left: auto;
+
+    transform: translateX(100%);
+}
+
+
+.table .prev img,
+.table .next img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    margin-top: -200px;
+}
+
+
+.table .prev.show,
+.table .next.show
+{
+    visibility: visible;
+
+    transform: translateX(0);
+    pointer-events: auto;
+
+    opacity: 1;
 }
 
 
@@ -333,7 +439,6 @@ button
 .load_more .btn:hover
 {
     color: #cd160b;
-
     border-color: #cd160b;
 }
 
@@ -381,8 +486,6 @@ button
 ----------------*/
 .air-datepicker
 {
-    color: var(--text_color);
-
     z-index: 9999;
 
     box-sizing: border-box;
@@ -390,6 +493,7 @@ button
     margin-top: -5px !important;
     padding: 0;
 
+    color: var(--text_color);
     border: none;
     border-radius: 5px;
     background: #fff;
@@ -409,17 +513,16 @@ button
 .air-datepicker-nav
 {
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
     min-height: 0;
     padding: 10px;
 
     border: none;
     border-bottom: 1px solid #f3f3f3;
-
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 
@@ -429,6 +532,10 @@ button
     position: relative;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     width: 16px;
     height: 16px;
@@ -436,18 +543,13 @@ button
     padding: 0;
 
     background: none;
-
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 .air-datepicker-nav--action.-disabled-
 {
-    color: #949599;
-
     visibility: visible;
+
+    color: #949599;
 }
 
 
@@ -502,7 +604,6 @@ button
 .air-datepicker-cell.-day-.-other-month-,
 .air-datepicker-cell.-year-.-other-decade-
 {
-    color: var(--text_color) !important;
     font-family: var(--font_family);
     font-size: 10px;
     font-weight: 400;
@@ -513,6 +614,7 @@ button
     transition: .2s linear;
     text-align: center;
 
+    color: var(--text_color) !important;
     border-radius: 5px !important;
     background: none;
 }
@@ -537,7 +639,6 @@ button
 .-selected-.air-datepicker-cell.-year-.-other-decade-.-focus-
 {
     color: var(--text_color) !important;
-
     border-color: transparent;
     background: #f3f3f3;
 }
@@ -562,22 +663,22 @@ header
 
 header .cont
 {
-    justify-content: space-between;
-    align-items: center;
     align-content: center;
+    align-items: center;
+    justify-content: space-between;
 }
 
 
 
 header .logo
 {
-    color: currentColor;
-
     display: block;
 
     margin-right: auto;
 
     text-decoration: none;
+
+    color: currentColor;
 }
 
 header .logo img
@@ -595,20 +696,20 @@ header .menu_item + .menu_item
 
 header .menu_item > a
 {
-    color: currentColor;
     font-size: 15px;
     font-weight: 600;
     line-height: 23px;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     transition: color .2s linear;
     text-decoration: none;
 
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
+    color: currentColor;
 }
 
 header .menu_item > a .icon
@@ -635,6 +736,10 @@ header .user
     line-height: 18px;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     height: 38px;
     margin-left: 20px;
@@ -642,22 +747,17 @@ header .user
 
     border: 1px solid #ddd;
     border-radius: 5px;
-
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 header .user .icon
 {
-    color: #de2e24;
-
     display: block;
 
     width: 16px;
     height: 17px;
     margin-left: 10px;
+
+    color: #de2e24;
 }
 
 
@@ -688,9 +788,8 @@ header .user .icon
 
 .form ::-moz-placeholder
 {
-    color: var(--form_placeholder_color);
-
     opacity: 1;
+    color: var(--form_placeholder_color);
 }
 
 .form :-ms-input-placeholder
@@ -702,11 +801,10 @@ header .user .icon
 .form .cols
 {
     display: flex;
-
-    justify-content: space-between;
-    align-items: flex-start;
     align-content: flex-start;
+    align-items: flex-start;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .form .cols .col
@@ -727,13 +825,13 @@ header .user .icon
 .form .columns
 {
     display: flex;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
     margin-left: calc(var(--form_columns_offset) * -1);
 
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: flex-start;
-    flex-wrap: wrap;
     --form_columns_offset: 10px;
 }
 
@@ -815,18 +913,15 @@ header .user .icon
     position: relative;
 
     display: flex;
-
-    justify-content: space-between;
-    align-items: center;
     align-content: center;
+    align-items: center;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 
 .form .field > .icon
 {
-    color: #949599;
-
     position: absolute;
     z-index: 3;
     top: 0;
@@ -840,12 +935,13 @@ header .user .icon
     margin: auto;
 
     pointer-events: none;
+
+    color: #949599;
 }
 
 
 .form .input
 {
-    color: var(--text_color);
     font-family: var(--font_family);
     font-size: var(--font_size);
 
@@ -857,6 +953,7 @@ header .user .icon
 
     transition: border-color .2s linear;
 
+    color: var(--text_color);
     border: 1px solid var(--form_border_color);
     border-radius: var(--form_border_radius);
     background: var(--form_bg_color);
@@ -885,7 +982,6 @@ header .user .icon
 
 .form textarea
 {
-    color: var(--text_color);
     font-family: var(--font_family);
     font-size: var(--font_size);
 
@@ -898,6 +994,7 @@ header .user .icon
     resize: none;
     transition: border-color .2s linear;
 
+    color: var(--text_color);
     border: 1px solid var(--form_border_color);
     border-radius: var(--form_border_radius);
     background: var(--form_bg_color);
@@ -1006,7 +1103,6 @@ header .user .icon
 
 .form .nice-select .list .option
 {
-    color: var(--text_color);
     line-height: 18px;
 
     padding: 6px 10px;
@@ -1015,6 +1111,7 @@ header .user .icon
     transition: background .2s linear;
     white-space: nowrap;
 
+    color: var(--text_color);
     border-radius: 6px;
 }
 
@@ -1032,7 +1129,6 @@ header .user .icon
 .form .nice-select .list .option.selected
 {
     color: #333;
-
     background: #f3f3f3;
 }
 
@@ -1066,20 +1162,17 @@ header .user .icon
     position: relative;
 
     display: inline-block;
+    order: 2;
 
     margin-left: auto;
 
     cursor: help;
     vertical-align: middle;
-
-    order: 2;
 }
 
 
 .form .tooltip .icon
 {
-    color: #949599;
-
     display: block;
 
     width: 16px;
@@ -1087,6 +1180,8 @@ header .user .icon
 
     transition: color .2s linear;
     text-align: center;
+
+    color: #949599;
 }
 
 .form .tooltip:hover .icon
@@ -1097,7 +1192,6 @@ header .user .icon
 
 .form .tooltip .text
 {
-    color: #fff;
     font-size: 10px;
     line-height: 15px;
 
@@ -1116,6 +1210,7 @@ header .user .icon
     text-align: center;
 
     opacity: 0;
+    color: #fff;
     border-radius: 6px;
     background: #333641;
     box-shadow: 0 0 20px rgba(51, 54, 65, .1);
@@ -1162,11 +1257,12 @@ header .user .icon
 
 .form .error_text
 {
-    color: #de2e24;
     font-size: 10px;
     line-height: 15px;
 
     margin-top: 4px;
+
+    color: #de2e24;
 }
 
 
@@ -1179,21 +1275,19 @@ header .user .icon
 .form .file label
 {
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 
     width: 100%;
 
     cursor: pointer;
-
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    flex-wrap: nowrap;
 }
 
 
 .form .file label .name
 {
-    color: #949599;
     line-height: 28px;
 
     overflow: hidden;
@@ -1205,6 +1299,7 @@ header .user .icon
     white-space: nowrap;
     text-overflow: ellipsis;
 
+    color: #949599;
     border: 1px solid #ddd;
     border-radius: 5px;
     background: #fff;
@@ -1234,6 +1329,10 @@ header .user .icon
     position: relative;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 
     width: 100%;
     padding: 7px 31px 7px 10px;
@@ -1241,11 +1340,6 @@ header .user .icon
     border: 1px solid var(--form_border_color);
     border-radius: var(--form_border_radius);
     background: var(--form_bg_color);
-
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-    flex-wrap: nowrap;
 }
 
 
@@ -1273,8 +1367,6 @@ header .user .icon
 
 .form .file .selected .delete_btn
 {
-    color: #ef4444;
-
     position: absolute;
     z-index: 5;
     top: 0;
@@ -1282,15 +1374,16 @@ header .user .icon
     bottom: 0;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     width: 16px;
     height: 16px;
     margin: auto;
 
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
+    color: #ef4444;
 }
 
 .form .file .selected .delete_btn .icon
@@ -1306,23 +1399,23 @@ header .user .icon
 
 .form .checkbox
 {
-    color: var(--text_color);
     font-size: 10px;
     line-height: 15px;
 
     position: relative;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
     min-height: 15px;
     padding-left: 25px;
 
     cursor: pointer;
 
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
+    color: var(--text_color);
 }
 
 
@@ -1341,6 +1434,10 @@ header .user .icon
     left: 0;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     width: 15px;
     height: 15px;
@@ -1351,18 +1448,11 @@ header .user .icon
     border: 1px solid #ddd;
     border-radius: 5px;
     background: #fff;
-
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 
 .form .checkbox .check .icon
 {
-    color: #fff;
-
     display: block;
 
     width: 9px;
@@ -1371,6 +1461,7 @@ header .user .icon
     transition: opacity .2s linear;
 
     opacity: 0;
+    color: #fff;
 }
 
 
@@ -1396,6 +1487,10 @@ header .user .icon
     bottom: 100%;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     margin-bottom: 11px;
     padding: 9px 14px;
@@ -1405,11 +1500,6 @@ header .user .icon
     border: 1px solid #949599;
     border-radius: 5px;
     background: #fff;
-
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 .form .submit_btn .icon
@@ -1425,7 +1515,6 @@ header .user .icon
 .form .submit_btn:hover
 {
     color: #cd160b;
-
     border-color: #cd160b;
 }
 
@@ -1433,12 +1522,12 @@ header .user .icon
 
 .form .add_payment_btn
 {
-    color: #fff;
     font-weight: 600;
     line-height: 18px;
 
     padding: 6px 15px;
 
+    color: #fff;
     border-radius: 5px;
     background: #cd160b;
 }
@@ -1457,15 +1546,14 @@ header .user .icon
 .table .head
 {
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
     padding: 20px 0;
 
     border-top: 1px solid #f3f3f3;
-
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 
@@ -1473,14 +1561,13 @@ header .user .icon
 .table .head .btns
 {
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
     margin-right: auto;
     margin-left: -10px;
-
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 
@@ -1490,6 +1577,10 @@ header .user .icon
     line-height: 18px;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
     margin-left: 10px;
     padding: 9px 14px;
@@ -1498,11 +1589,6 @@ header .user .icon
 
     border: 1px solid #ddd;
     border-radius: 5px;
-
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 
@@ -1519,7 +1605,6 @@ header .user .icon
 .table .head .btns .btn:hover
 {
     color: #cd160b;
-
     border-color: #cd160b;
 }
 
@@ -1527,11 +1612,11 @@ header .user .icon
 .table .head .btns .add_new_btn,
 .table .head .btns .add_new_btn:hover
 {
-    color: #fff;
     font-size: 15px;
     font-weight: 600;
     line-height: 18px;
 
+    color: #fff;
     border-color: #de2e24;
     background: #de2e24;
 }
@@ -1557,13 +1642,12 @@ header .user .icon
 .table .head .filter_btns
 {
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
     margin-left: auto;
-
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 .table .head .filter_btns > * + *
@@ -1574,13 +1658,13 @@ header .user .icon
 
 .table .head .filter_btns .btn
 {
-    color: #333641;
     font-size: 11px;
 
     padding: 9px 14px;
 
     transition: .2s linear;
 
+    color: #333641;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -1589,7 +1673,6 @@ header .user .icon
 .table .head .filter_btns .btn:hover
 {
     color: #cd160b;
-
     border-color: #cd160b;
 }
 
@@ -1597,7 +1680,6 @@ header .user .icon
 .table .head .filter_btns .btn.apply_btn
 {
     color: #fff;
-
     border-color: #cd160b;
     background: #cd160b;
 }
@@ -1606,9 +1688,11 @@ header .user .icon
 
 .table .head .download_exel
 {
-    color: currentColor;
-
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     width: 32px;
     height: 32px;
@@ -1617,10 +1701,7 @@ header .user .icon
     transition: color .2s linear;
     text-decoration: none;
 
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
+    color: currentColor;
 }
 
 
@@ -1649,16 +1730,15 @@ header .user .icon
 .table .head .settings .btn
 {
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     width: 32px;
     height: 32px;
 
     transition: color .2s linear;
-
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 
@@ -1714,16 +1794,15 @@ header .user .icon
     position: relative;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
     min-height: 15px;
     padding-left: 25px;
 
     cursor: pointer;
-
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 
@@ -1740,6 +1819,10 @@ header .user .icon
     left: 0;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     width: 15px;
     height: 15px;
@@ -1749,18 +1832,11 @@ header .user .icon
     border: 1px solid #ddd;
     border-radius: 5px;
     background: #fff;
-
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 
 .table .head .settings .checkbox .check .icon
 {
-    color: #fff;
-
     display: block;
 
     width: 9px;
@@ -1769,6 +1845,7 @@ header .user .icon
     transition: opacity .2s linear;
 
     opacity: 0;
+    color: #fff;
 }
 
 
@@ -1804,7 +1881,6 @@ header .user .icon
 .table .head .settings .save_btn:hover
 {
     color: #fff;
-
     background: #de2e24;
 }
 
@@ -1859,7 +1935,6 @@ header .user .icon
 
 .table th
 {
-    color: #949599;
     font-weight: 400;
     line-height: 18px;
 
@@ -1872,6 +1947,7 @@ header .user .icon
     vertical-align: middle;
     white-space: nowrap;
 
+    color: #949599;
     border-bottom: 1px solid #e5e7eb;
     background: #f3f3f3;
 }
@@ -1913,16 +1989,15 @@ header .user .icon
 .table th .sub
 {
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 
     width: calc(100% + 20px);
     margin-top: 4px;
     margin-right: -10px;
     margin-left: -10px;
-
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-    flex-wrap: nowrap;
 }
 
 
@@ -1950,21 +2025,20 @@ header .user .icon
 
 .table th .filter_btn
 {
-    color: var(--text_color);
-
     position: relative;
     z-index: 5;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 
     padding: 5px 0;
 
     white-space: nowrap;
 
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-    flex-wrap: nowrap;
+    color: var(--text_color);
 }
 
 .table th .filter_btn .icon
@@ -2139,18 +2213,17 @@ header .user .icon
 
 .table td.ptc a
 {
-    color: currentColor;
-
     display: none;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
     max-width: calc(100% - 40px);
 
     text-decoration: none;
 
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: flex-start;
-    flex-wrap: wrap;
+    color: currentColor;
 }
 
 .table td.ptc a .icon
@@ -2170,23 +2243,22 @@ header .user .icon
 
 .table td.ptc .delete_btn
 {
-    color: #ef4444;
-
     position: absolute;
     top: 0;
     right: 18px;
     bottom: 0;
 
     display: none;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     width: 16px;
     height: 16px;
     margin: auto;
 
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
+    color: #ef4444;
 }
 
 .table td.ptc .delete_btn .icon
@@ -2213,9 +2285,8 @@ header .user .icon
 
 .table ::-moz-placeholder
 {
-    color: #949599;
-
     opacity: 1;
+    color: #949599;
 }
 
 .table :-ms-input-placeholder
@@ -2227,7 +2298,6 @@ header .user .icon
 .table td .row
 {
     display: none;
-
     flex-wrap: nowrap;
     justify-content: space-between;
 }
@@ -2291,7 +2361,6 @@ header .user .icon
 
 .table .input
 {
-    color: var(--text_color);
     font-family: var(--font_family);
     font-size: var(--font_size);
 
@@ -2303,6 +2372,7 @@ header .user .icon
 
     transition: border-color .2s linear;
 
+    color: var(--text_color);
     border: 1px solid #ddd;
     border-radius: 5px;
     background: #fff;
@@ -2401,7 +2471,6 @@ header .user .icon
 
 .table .nice-select .list .option
 {
-    color: var(--text_color);
     line-height: 18px;
 
     padding: 6px 10px;
@@ -2410,6 +2479,7 @@ header .user .icon
     transition: background .2s linear;
     white-space: nowrap;
 
+    color: var(--text_color);
     border-radius: 6px;
 }
 
@@ -2427,7 +2497,6 @@ header .user .icon
 .table .nice-select .list .option.selected
 {
     color: #333;
-
     background: #f3f3f3;
 }
 
@@ -2458,23 +2527,23 @@ header .user .icon
 
 .table .checkbox
 {
-    color: var(--text_color);
     font-size: 10px;
     line-height: 15px;
 
     position: relative;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
     min-height: 15px;
     padding-left: 25px;
 
     cursor: pointer;
 
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
+    color: var(--text_color);
 }
 
 .table .checkbox.mini
@@ -2499,6 +2568,10 @@ header .user .icon
     left: 0;
 
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 
     width: 15px;
     height: 15px;
@@ -2509,18 +2582,11 @@ header .user .icon
     border: 1px solid #ddd;
     border-radius: 5px;
     background: #fff;
-
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 
 .table .checkbox .check .icon
 {
-    color: #fff;
-
     display: block;
 
     width: 9px;
@@ -2529,6 +2595,7 @@ header .user .icon
     transition: opacity .2s linear;
 
     opacity: 0;
+    color: #fff;
 }
 
 
@@ -2552,14 +2619,14 @@ header .user .icon
 
 .table td.debt.red
 {
-    color: #de2e24;
     font-weight: 600;
+
+    color: #de2e24;
 }
 
 
 .table td .file
 {
-    color: #fff;
     font-size: 10px;
     line-height: 15px;
 
@@ -2570,6 +2637,7 @@ header .user .icon
     cursor: pointer;
     text-align: center;
 
+    color: #fff;
     border-radius: 5px;
     background: #de2e24;
 }
@@ -2654,8 +2722,6 @@ header .user .icon
 -----------*/
 .modal
 {
-    color: var(--text_color);
-
     display: none;
     visibility: visible !important;
 
@@ -2663,6 +2729,7 @@ header .user .icon
     max-width: 100%;
     padding: 0;
 
+    color: var(--text_color);
     border-radius: 5px;
     background: #fff;
     box-shadow: 0 0 20px rgba(51, 54, 65, .1);
@@ -2677,16 +2744,15 @@ header .user .icon
 .modal_head
 {
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
     min-height: 58px;
     padding: 17px 41px 17px 20px;
 
     border-bottom: 1px solid #f3f3f3;
-
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 
@@ -2709,13 +2775,12 @@ header .user .icon
 .modal .btns
 {
     display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 
     margin-top: 20px;
-
-    justify-content: flex-start;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
 }
 
 
@@ -2734,14 +2799,12 @@ header .user .icon
 .modal .btns .btn:hover
 {
     color: #cd160b;
-
     border-color: #cd160b;
 }
 
 .modal .btns .btn.yes_btn
 {
     color: #fff;
-
     border-color: #cd160b;
     background: #cd160b;
 }
